@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #c800ff4f;
+            ;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 21px;
+        }
+
+        #addForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            width: 50%;
+            margin: auto;
+            padding: 21px;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: #6bf409b0;
+            ;
+        }
+
+        .student_data {
+            margin: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        #name {
+            padding: 6px;
+            font-size: 1.1rem;            
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        #dob {
+            padding: 6px;
+            font-size: 1.1rem;            
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        #gender {
+            padding: 6px;
+            font-size: 1.1rem;            
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        #course {
+            padding: 6px;
+            font-size: 1.1rem;            
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        .btn {
+            margin: 15px;
+            padding: 7px;
+            width: 140px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: aliceblue;
+        }
+
+        .btn:hover {
+            font-size: 1.6rem;
+            background-color: rgb(216, 219, 222);
+        }
+
+        p{
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-top: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add Student Record</h1>
+    <form id="addForm">
+        <div class="student_data">
+            <label for="name">Student Name:</label>
+            <input type="text" id="name" placeholder="Enter name" required>
+        </div>
+        <div class="student_data">
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" required>
+        </div>
+        <div class="student_data">
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="student_data">
+            <label for="course">Course:</label>
+            <select id="course" required>
+                <option value="">Select</option>
+                <option value="BA">BA</option>
+                <option value="BBA">BBA</option>
+                <option value="B.com">B.com</option>
+                <option value="BCA">BCA</option>
+                <option value="BSc">BSc</option>
+                <option value="BSc.CS">BSc.CS</option>
+                <option value="BSc.Ag">BSc.Ag</option>
+            </select>
+        </div>
+        <div>
+            <button class="btn" id="saveData">Add</button>
+            <button class="btn" id="goBack">Go back</button>
+        </div>
+    </form>
+    <p id="message"></p>
+    <script>
+        const nameElement = document.getElementById('name');
+        const dobElement = document.getElementById('dob');
+        const genderElement = document.getElementById('gender');
+        const courseElement = document.getElementById('course');
+        const message = document.getElementById('message');
+
+        document.getElementById('saveData').addEventListener('click', (e) => {
+
+            let name = nameElement.value;
+            let dob = dobElement.value;
+            let gender = genderElement.value;
+            let course = courseElement.value;
+
+            //Prevent form submission
+            e.preventDefault();
+
+            // Saving data to local storage
+            localStorage.setItem(name, name);
+            localStorage.setItem(dob, dob);
+            localStorage.setItem(gender, gender);
+            localStorage.setItem(course, course);
+            
+            //Reset the form element
+            nameElement.value = "";
+            dobElement.value = "dd-mm-yyyy";
+            genderElement.selectedIndex = 0;
+            courseElement.selectedIndex = 0;
+            message.innerHTML = "The student record is successfully added";
+        });
+
+        document.getElementById('goBack').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.history.back();
+        });
+
+    </script>
+</body>
+
+</html>

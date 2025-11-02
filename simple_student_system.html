@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student attendance system</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            background: url(school.jpg) no-repeat center center/cover;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 615px;
+            width: 100%;
+            z-index: -1;
+            opacity: .7;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 90px;
+            color: #080808;
+            font-family: system-ui;
+        }
+
+        #menu {
+            display: flex;
+            flex-direction: column;
+            height: 328px;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        .btn {
+            margin: 15px;
+            padding: 7px;
+            height: 50px;
+            font-size: 1.5rem;
+            font-family: emoji;
+            font-weight: bold;
+            border: 2px solid blue;
+            border-radius: 8px;
+            background-color: #d8ff0096;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            font-size: 1.7rem;
+            background-color: #e5f48296;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Student Management System</h1>
+    <div id="menu">
+        <button class="btn" onclick="add_student()">Add Student</button>
+        <button class="btn" onclick="remove_student()">Remove Student</button>
+        <button class="btn" onclick="search_student()">Search Student</button>
+        <button class="btn" onclick="update_student()">Update Student</button>
+    </div>
+
+    <script>
+        function add_student(){
+            window.location.href = "addStudent.html";
+        }
+        function remove_student(){
+            window.location.href = "removeStudent.html";
+        }
+        function search_student(){
+            window.location.href = "searchStudent.html";
+        }
+        function update_student(){
+            window.location.href = "updateStudent.html";
+        }
+    </script>
+</body>
+
+</html>
